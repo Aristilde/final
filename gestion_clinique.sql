@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : sam. 03 sep. 2022 à 17:38
+-- Généré le : sam. 03 sep. 2022 à 17:52
 -- Version du serveur : 8.0.27
 -- Version de PHP : 7.4.26
 
@@ -33,7 +33,7 @@ CREATE TABLE IF NOT EXISTS `consultations` (
   `date_consultation` date NOT NULL,
   `id_patients` int NOT NULL,
   `id_medecins` int NOT NULL,
-  `description_consultation` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `description_consultation` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   PRIMARY KEY (`id_consultations`),
   KEY `id_patients` (`id_patients`),
   KEY `id_medecins` (`id_medecins`)
@@ -82,9 +82,9 @@ INSERT INTO `consultations` (`id_consultations`, `date_consultation`, `id_patien
 DROP TABLE IF EXISTS `medecins`;
 CREATE TABLE IF NOT EXISTS `medecins` (
   `id_medecins` int NOT NULL AUTO_INCREMENT,
-  `nom_complet` varchar(100) NOT NULL,
-  `adresse` varchar(255) NOT NULL,
-  `specialisation` varchar(150) NOT NULL,
+  `nom_complet` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `adresse` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `specialisation` varchar(150) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   PRIMARY KEY (`id_medecins`)
 ) ENGINE=MyISAM AUTO_INCREMENT=23 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
@@ -125,8 +125,8 @@ INSERT INTO `medecins` (`id_medecins`, `nom_complet`, `adresse`, `specialisation
 DROP TABLE IF EXISTS `patients`;
 CREATE TABLE IF NOT EXISTS `patients` (
   `id_patients` int NOT NULL AUTO_INCREMENT,
-  `nom_complet` varchar(255) NOT NULL,
-  `maladies` varchar(255) NOT NULL,
+  `nom_complet` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `maladies` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   PRIMARY KEY (`id_patients`)
 ) ENGINE=MyISAM AUTO_INCREMENT=27 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
@@ -171,9 +171,9 @@ INSERT INTO `roles` (`id_roles`, `poste`) VALUES
 DROP TABLE IF EXISTS `users`;
 CREATE TABLE IF NOT EXISTS `users` (
   `id_users` int NOT NULL AUTO_INCREMENT,
-  `Nom_Complet` varchar(70) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
-  `Email` varchar(70) NOT NULL,
-  `Mot_de_Passe` varchar(150) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `Nom_Complet` varchar(70) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `Email` varchar(70) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `Mot_de_Passe` varchar(150) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   `id_roles` int NOT NULL,
   PRIMARY KEY (`id_users`),
   KEY `id_roles` (`id_roles`)
